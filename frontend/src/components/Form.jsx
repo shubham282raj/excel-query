@@ -9,6 +9,7 @@ function CollgeForm() {
 
   const handleFormQuery = (rawData, data) => {
     const {
+      instituteType,
       institute,
       academicProgram,
       quota,
@@ -26,6 +27,10 @@ function CollgeForm() {
       const quotaWords = quota.split(" ").filter(Boolean);
       const seatTypeWords = seatType.split(" ").filter(Boolean);
       const genderWords = gender.split(" ").filter(Boolean);
+
+      const collegeTypeMatch = row["Institute"]
+        .toLowerCase()
+        .includes(instituteType.toLowerCase());
 
       const collegeMatch =
         instituteWords.length === 0 ||
@@ -65,6 +70,7 @@ function CollgeForm() {
           Number(row["Closing Rank"]) <= Number(closingMaxRank));
 
       return (
+        collegeTypeMatch &&
         collegeMatch &&
         programMatch &&
         quotaMatch &&
@@ -94,6 +100,19 @@ function CollgeForm() {
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
+        <div>
+          <label>
+            Institute Type:
+            <select {...register("instituteType")}>
+              <option value="">All</option>
+              <option value="Indian Institute of Technology">IIT</option>
+              <option value="National Institute of Technology">NIT</option>
+              <option value="Indian Institutes of Information Technology">
+                IIIT
+              </option>
+            </select>
+          </label>
+        </div>
         <div>
           <label>
             Institute:
