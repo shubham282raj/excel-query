@@ -96,9 +96,8 @@ function CollgeForm() {
   const onSubmit = async (formData) => {
     let storedExcelData = localStorage.getItem("excelData");
     if (!storedExcelData) {
-      let fetchedExcel = await fetchExcel();
-      storedExcelData = JSON.stringify(fetchedExcel);
-      localStorage.setItem("excelData", storedExcelData);
+      storedExcelData = await fetchExcel();
+      localStorage.setItem("excelData", JSON.stringify(storedExcelData));
     } else {
       storedExcelData = JSON.parse(storedExcelData);
     }
