@@ -2,7 +2,7 @@ import * as XLSX from "xlsx";
 
 export const fetchExcel = async () => {
   const excelUrl =
-    "https://raw.githubusercontent.com/shubham282raj/excel-query/main/josaa.xlsx";
+    "https://raw.githubusercontent.com/shubham282raj/josaa-colleges/main/josaa.xlsx";
   try {
     const response = await fetch(excelUrl);
     const arrayBuffer = await response.arrayBuffer();

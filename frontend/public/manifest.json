@@ -1,9 +1,22 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
-  "icons": [],
+  "short_name": "JoSAA Colleges",
+  "name": "JoSAA Colleges",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "icon350.png",
+      "type": "image/png",
+      "sizes": "192x192 512x512",
+      "purpose": "maskable any"
+    }
+  ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "rgb(8,18,30)",
+  "background_color": "rgba(33,40,50,255)"
 }
