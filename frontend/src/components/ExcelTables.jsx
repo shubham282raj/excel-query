@@ -1,9 +1,10 @@
 import React from "react";
+import "./ExcelTables.css";
 
 function ExcelTables({ excelData }) {
   if (excelData) {
     return (
-      <div>
+      <div id="table">
         <table border="1">
           <thead>
             <tr>

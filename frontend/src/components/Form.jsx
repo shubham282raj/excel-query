@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { fetchExcel } from "../utils/fetchExcel";
 import ExcelTables from "./ExcelTables";
+import "./Form.css";
 
 function CollgeForm() {
   const [excelData, setExcelData] = useState([]);
@@ -108,7 +109,7 @@ function CollgeForm() {
 
   return (
     <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form id="form" onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label>
             Institute Type:
@@ -143,16 +144,18 @@ function CollgeForm() {
         <div>
           <label>
             Seat Type:
-            <input
-              type="text"
-              placeholder="Include"
-              {...register("seatType")}
-            />
-            <input
-              type="text"
-              placeholder="Exclude"
-              {...register("seatTypeExclude")}
-            />
+            <div>
+              <input
+                type="text"
+                placeholder="Include"
+                {...register("seatType")}
+              />
+              <input
+                type="text"
+                placeholder="Exclude"
+                {...register("seatTypeExclude")}
+              />
+            </div>
           </label>
         </div>
         <div>
@@ -164,31 +167,35 @@ function CollgeForm() {
         <div>
           <label>
             Opening Rank:
-            <input
-              type="number"
-              placeholder="Minimum"
-              {...register("openingMinRank")}
-            />
-            <input
-              type="number"
-              placeholder="Maximum"
-              {...register("openingMaxRank")}
-            />
+            <div>
+              <input
+                type="number"
+                placeholder="Minimum"
+                {...register("openingMinRank")}
+              />
+              <input
+                type="number"
+                placeholder="Maximum"
+                {...register("openingMaxRank")}
+              />
+            </div>
           </label>
         </div>
         <div>
           <label>
             Closing Rank:
-            <input
-              type="number"
-              placeholder="Minimum"
-              {...register("closingMinRank")}
-            />
-            <input
-              type="number"
-              placeholder="Maximum"
-              {...register("closingMaxRank")}
-            />
+            <div>
+              <input
+                type="number"
+                placeholder="Minimum"
+                {...register("closingMinRank")}
+              />
+              <input
+                type="number"
+                placeholder="Maximum"
+                {...register("closingMaxRank")}
+              />
+            </div>
           </label>
         </div>
         <button type="submit">Submit</button>
