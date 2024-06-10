@@ -14,6 +14,7 @@ function CollgeForm() {
       academicProgram,
       quota,
       seatType,
+      seatTypeExclude,
       gender,
       openingMinRank,
       openingMaxRank,
@@ -26,6 +27,7 @@ function CollgeForm() {
       const academicProgramWords = academicProgram.split(" ").filter(Boolean);
       const quotaWords = quota.split(" ").filter(Boolean);
       const seatTypeWords = seatType.split(" ").filter(Boolean);
+      const seatTypeExcludeWords = seatTypeExclude.split(" ").filter(Boolean);
       const genderWords = gender.split(" ").filter(Boolean);
 
       const collegeTypeMatch = row["Institute"]
@@ -40,7 +42,9 @@ function CollgeForm() {
       const programMatch =
         academicProgramWords.length === 0 ||
         academicProgramWords.every((word) =>
-          row["Academic Program"].toLowerCase().includes(word.toLowerCase())
+          row["Academic Program Name"]
+            .toLowerCase()
+            .includes(word.toLowerCase())
         );
       const quotaMatch =
         quotaWords.length === 0 ||
@@ -48,10 +52,15 @@ function CollgeForm() {
           row["Quota"].toLowerCase().includes(word.toLowerCase())
         );
       const seatTypeMatch =
-        seatTypeWords.length === 0 ||
-        seatTypeWords.every((word) =>
-          row["Seat Type"].toLowerCase().includes(word.toLowerCase())
-        );
+        (seatTypeWords.length === 0 ||
+          seatTypeWords.every((word) =>
+            row["Seat Type"].toLowerCase().includes(word.toLowerCase())
+          )) &&
+        (seatTypeWords.length === 0 ||
+          seatTypeExcludeWords.every(
+            (word) =>
+              !row["Seat Type"].toLowerCase().includes(word.toLowerCase())
+          ));
       const genderMatch =
         genderWords.length === 0 ||
         genderWords.every((word) =>
@@ -134,7 +143,16 @@ function CollgeForm() {
         <div>
           <label>
             Seat Type:
-            <input type="text" {...register("seatType")} />
+            <input
+              type="text"
+              placeholder="Include"
+              {...register("seatType")}
+            />
+            <input
+              type="text"
+              placeholder="Exclude"
+              {...register("seatTypeExclude")}
+            />
           </label>
         </div>
         <div>
