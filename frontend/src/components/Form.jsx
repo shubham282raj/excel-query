@@ -125,24 +125,37 @@ function CollgeForm() {
         <div>
           <label>
             Institute:
-            <input type="text" {...register("institute")} />
+            <input
+              placeholder="leave empty for all institutes"
+              type="text"
+              {...register("institute")}
+            />
           </label>
         </div>
         <div>
           <label>
-            Academic Program:
-            <input type="text" {...register("academicProgram")} />
+            Branch:
+            <input
+              placeholder="leave empty for all branches"
+              type="text"
+              {...register("academicProgram")}
+            />
           </label>
         </div>
         <div>
           <label>
             Quota:
-            <input type="text" {...register("quota")} />
+            <input
+              placeholder="eg. AI, HS, OS, GO, JK, LA"
+              type="text"
+              {...register("quota")}
+            />
           </label>
         </div>
         <div>
           <label>
-            Seat Type:
+            Category:
+            <div></div>
             <div>
               <input
                 type="text"
@@ -160,7 +173,11 @@ function CollgeForm() {
         <div>
           <label>
             Gender:
-            <input type="text" {...register("gender")} />
+            <select {...register("gender")}>
+              <option value="">All</option>
+              <option value="neutral">Gender-Neutral</option>
+              <option value="female">Female-only</option>
+            </select>
           </label>
         </div>
         <div>

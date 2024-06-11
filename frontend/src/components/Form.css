@@ -19,11 +19,11 @@
   border: 1px solid #666;
   border-radius: 5px;
   padding: 5px 10px;
-  width: 200px;
+  width: 250px;
 }
 
 #form label div input {
-  width: 100px !important;
+  width: 125px !important;
 }
 
 #form button {
