@@ -57,7 +57,7 @@ function CollgeForm() {
           seatTypeWords.every((word) =>
             row["Seat Type"].toLowerCase().includes(word.toLowerCase())
           )) &&
-        (seatTypeWords.length === 0 ||
+        (seatTypeExcludeWords.length === 0 ||
           seatTypeExcludeWords.every(
             (word) =>
               !row["Seat Type"].toLowerCase().includes(word.toLowerCase())
