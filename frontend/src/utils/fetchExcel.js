@@ -1,8 +1,7 @@
 import * as XLSX from "xlsx";
 
-export const fetchExcel = async () => {
-  const excelUrl =
-    "https://raw.githubusercontent.com/shubham282raj/josaa-colleges/main/josaa.xlsx";
+export const fetchExcel = async (year = 2023, round = 6) => {
+  const excelUrl = `https://raw.githubusercontent.com/shubham282raj/josaa-colleges/main/sheets/${year}_round${round}.xlsx`;
   try {
     const response = await fetch(excelUrl);
     const arrayBuffer = await response.arrayBuffer();
