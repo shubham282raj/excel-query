@@ -116,7 +116,7 @@ function CollgeForm() {
               <option value="">All</option>
               <option value="Indian Institute of Technology">IIT</option>
               <option value="National Institute of Technology">NIT</option>
-              <option value="Indian Institutes of Information Technology">
+              <option value="Indian Institute of Information Technology">
                 IIIT
               </option>
             </select>
