@@ -21,6 +21,7 @@ function CollgeForm() {
       openingMaxRank,
       closingMinRank,
       closingMaxRank,
+      sort,
     } = data;
 
     const filteredData = rawData.filter((row) => {
@@ -90,6 +91,12 @@ function CollgeForm() {
         closingRankMatch
       );
     });
+
+    if (sort === "") {
+    } else if (sort === "Opening Rank" || sort === "Closing Rank")
+      filteredData.sort((a, b) => a[sort] - b[sort]);
+    else filteredData.sort((a, b) => a[sort].localeCompare(b[sort]));
+
     return filteredData;
   };
 
@@ -212,6 +219,21 @@ function CollgeForm() {
                 {...register("closingMaxRank")}
               />
             </div>
+          </label>
+        </div>
+        <div>
+          <label>
+            Sort:
+            <select {...register("sort")}>
+              <option value="">Default</option>
+              <option value="Institute">Institute</option>
+              <option value="Academic Program Name">Branch</option>
+              <option value="Quota">Quota</option>
+              <option value="Seat Type">Category</option>
+              <option value="Gender">Gender</option>
+              <option value="Opening Rank">Opening Rank</option>
+              <option value="Closing Rank">Closing Rank</option>
+            </select>
           </label>
         </div>
         <button type="submit">Submit</button>
